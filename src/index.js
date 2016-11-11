@@ -1,10 +1,21 @@
 import React from 'react'; //assings React variable retrieved from react lib
 import ReactDOM from 'react-dom' // library that renders the HTML
 
+import SearchBar from './components/search_bar'; // when importing code, must give file reference
+
+const API_KEY = 'AIzaSyAGifs7f6wj3lObS5hRz-FzrE4hFKZfFhY'
+
+
 //Create a new component.
 //This component should produce HTML
-const App = function() {
-  return <div>Hi</div>
+
+//ES6 function() { } === () => { }
+const App = () => {
+  return (
+    <div>
+      <SearchBar />
+    </div>
+  );
 } // this is a class not an instance
 
 //Take component's generated HTML and put in the DOM

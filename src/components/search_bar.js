@@ -10,9 +10,11 @@ to
 */
 class SearchBar extends Component { //enables our searchbar to access React.Component Class
   render() {
-    return <input />;
+    return <input onChange = {event => console.log(event.target.value)} />;
   }
+
 }
 
-//export files to allow index.js to access this file
+//delcare event handler
+//pass event handler to element you want to monitor event
 export default SearchBar;

@@ -1,20 +1,23 @@
 import React, {Component} from 'react'; //React creates each element so we need to import React
 //{Component} creates variable component from React Class
 
-/* Refactor from functional component (below)
-const SearchBar = () => {
-  return <input /> //generate input
-};
 
-to
-*/
-class SearchBar extends Component { //enables our searchbar to access React.Component Class
+//only class based compnents have state!
+
+class SearchBar extends Component {
+  constructor(props) {
+  	super(props);
+
+  	this.state = { term: '' };
+
+  }
+
   render() {
     return <input onChange = {event => console.log(event.target.value)} />;
   }
 
 }
 
-//delcare event handler
-//pass event handler to element you want to monitor event
+//state JS objects used to record user events
+//each class based object has state object
 export default SearchBar;

@@ -1,9 +1,15 @@
 import React from 'react'; //assings React variable retrieved from react lib
-import ReactDOM from 'react-dom' // library that renders the HTML
+import ReactDOM from 'react-dom'; // library that renders the HTML
+import YTSearch from 'youtube-api-search';
+
 
 import SearchBar from './components/search_bar'; // when importing code, must give file reference
 
-const API_KEY = 'AIzaSyAGifs7f6wj3lObS5hRz-FzrE4hFKZfFhY'
+const API_KEY = 'AIzaSyAGifs7f6wj3lObS5hRz-FzrE4hFKZfFhY';
+
+YTSearch({key: API_KEY, term: 'surfboards'}, function(data){
+	console.log(data);
+});
 
 
 //Create a new component.

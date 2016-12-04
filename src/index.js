@@ -1,4 +1,4 @@
-import React from 'react'; //assings React variable retrieved from react lib
+import React, {Component} from 'react'; //assings React variable retrieved from react lib
 import ReactDOM from 'react-dom'; // library that renders the HTML
 import YTSearch from 'youtube-api-search';
 
@@ -7,23 +7,36 @@ import SearchBar from './components/search_bar'; // when importing code, must gi
 
 const API_KEY = 'AIzaSyAGifs7f6wj3lObS5hRz-FzrE4hFKZfFhY';
 
-YTSearch({key: API_KEY, term: 'surfboards'}, function(data){
-	console.log(data);
-});
-
 
 //Create a new component.
 //This component should produce HTML
 
 //ES6 function() { } === () => { }
-const App = () => {
-  return (
-    <div>
-      <SearchBar />
-    </div>
-  );
-} // this is a class not an instance
 
+//refactor class
+class App extends Component {
+	constructor(props) {
+		super(props);
+
+
+		this.state = { videos: [] };
+
+		YTSearch({key: API_KEY, term: 'surfboards'}, (videos) =>{
+			this.setState({videos}); // es6 shortened syntax
+		
+		});
+
+	}
+	render() {
+		return (
+			<div>
+				<SearchBar />
+			</div>
+		);
+	}
+}
+
+//
 //Take component's generated HTML and put in the DOM
 //instantiate component before rendering to the DOM
 

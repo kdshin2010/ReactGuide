@@ -1,6 +1,7 @@
 import React, {Component} from 'react'; //assings React variable retrieved from react lib
 import ReactDOM from 'react-dom'; // library that renders the HTML
 import YTSearch from 'youtube-api-search';
+import VideoList from './components/video_list'
 
 
 import SearchBar from './components/search_bar'; // when importing code, must give file reference
@@ -27,10 +28,14 @@ class App extends Component {
 		});
 
 	}
+	//passing data from parent to child (App to Video)
+	// define propertry in JSX tag videos={this.state.videos}
+	 // thisis called passing props
 	render() {
 		return (
 			<div>
 				<SearchBar />
+				<VideoList videos={this.state.videos} />
 			</div>
 		);
 	}

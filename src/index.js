@@ -1,7 +1,8 @@
 import React, {Component} from 'react'; //assings React variable retrieved from react lib
 import ReactDOM from 'react-dom'; // library that renders the HTML
 import YTSearch from 'youtube-api-search';
-import VideoList from './components/video_list'
+import VideoList from './components/video_list';
+import VideoDetail from './components/video_detail';
 
 
 import SearchBar from './components/search_bar'; // when importing code, must give file reference
@@ -35,6 +36,7 @@ class App extends Component {
 		return (
 			<div>
 				<SearchBar />
+				<VideoDetail video={this.state.videos[0]}/>
 				<VideoList videos={this.state.videos} />
 			</div>
 		);

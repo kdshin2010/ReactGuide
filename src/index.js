@@ -21,10 +21,19 @@ class App extends Component {
 		super(props);
 
 
-		this.state = { videos: [] };
+		this.state = { 
+			videos: [],
+			selectedVideo: null
+
+		 };
 
 		YTSearch({key: API_KEY, term: 'airplanes'}, (videos) =>{
-			this.setState({videos}); // es6 shortened syntax
+
+			this.setState({
+				videos: videos,
+				selectedVideo: videos[0]
+
+			}); // es6 shortened syntax
 		
 		});
 
@@ -32,12 +41,16 @@ class App extends Component {
 	//passing data from parent to child (App to Video)
 	// define propertry in JSX tag videos={this.state.videos}
 	 // thisis called passing props
+
+	 //Pass another fucntion to 
 	render() {
 		return (
 			<div>
 				<SearchBar />
-				<VideoDetail video={this.state.videos[0]}/>
-				<VideoList videos={this.state.videos} />
+				<VideoDetail video={this.state.selectedVideo}/>
+				<VideoList
+				onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+				videos={this.state.videos} />
 			</div>
 		);
 	}
